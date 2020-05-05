@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.jrhenderson1988.gitgutter</id>
-    <name>Plugin display name here</name>
+    <name>Git Gutter</name>
     <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
     <description><![CDATA[
@@ -16,7 +16,12 @@
         <!-- Add your extensions here -->
     </extensions>
 
+    <applicationListeners>
+        <listener class="com.github.jrhenderson1988.gitgutter.GitGutterApplicationListener" topic="com.intellij.ide.AppLifecycleListener"/>
+    </applicationListeners>
+
+
     <actions>
-        <!-- Add your actions here -->
+
     </actions>
 </idea-plugin>
