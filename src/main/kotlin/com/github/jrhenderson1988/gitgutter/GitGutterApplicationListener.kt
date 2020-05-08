@@ -49,7 +49,6 @@ object GitGutterApplicationListener : AppLifecycleListener {
             }
         }
 
-        println(alpha)
         cp.get("com.intellij.openapi.vcs.ex.LineStatusMarkerRenderer")
             .apply {
                 addMethod(
