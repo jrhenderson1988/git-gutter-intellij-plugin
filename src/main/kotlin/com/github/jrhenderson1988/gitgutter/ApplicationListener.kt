@@ -1,5 +1,6 @@
 package com.github.jrhenderson1988.gitgutter
 
+import com.github.jrhenderson1988.gitgutter.config.GitGutterConfig
 import com.intellij.ide.AppLifecycleListener
 import javassist.ClassPool
 import javassist.CtNewMethod
@@ -8,8 +9,9 @@ import javassist.expr.MethodCall
 import kotlin.math.roundToInt
 
 object ApplicationListener : AppLifecycleListener {
-    private const val multiplier = 0.75
-    private const val alpha = 0.5
+    private val config = GitGutterConfig.instance
+    private val size = config.size
+    private val alpha = config.alpha
     private val cp = ClassPool(true)
 
     init {
@@ -29,7 +31,7 @@ object ApplicationListener : AppLifecycleListener {
                         {
                             int start = getIconAreaOffset() + myIconsAreaWidth + getGapAfterIconsArea();
                             int end = getWhitespaceSeparatorOffset();
-                            int offs = (int) Math.round((end - start) * (1.0d - ${multiplier}d));
+                            int offs = (int) Math.round((end - start) * (1.0d - ${size}d));
                             return start + offs;
                         }
                         """.trimIndent()
