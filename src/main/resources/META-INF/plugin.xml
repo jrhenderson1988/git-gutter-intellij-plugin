@@ -1,12 +1,9 @@
 <idea-plugin>
     <id>com.github.jrhenderson1988.gitgutter</id>
     <name>Git Gutter</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://github.com/jrhenderson1988">Jonathon Henderson</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description><![CDATA[Allows some minor customisation of the VCS change markers in the editor's gutter]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -14,10 +11,14 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <applicationConfigurable instance="com.github.jrhenderson1988.gitgutter.config.GitGutterConfigurable"
+                                 groupId="appearance"
+                                 id="GitGutterConfigurable"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.jrhenderson1988.gitgutter.GitGutterApplicationListener" topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="com.github.jrhenderson1988.gitgutter.GitGutterApplicationListener"
+                  topic="com.intellij.ide.AppLifecycleListener"/>
     </applicationListeners>
 
 
