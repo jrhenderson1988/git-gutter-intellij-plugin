@@ -7,7 +7,7 @@ import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 import kotlin.math.roundToInt
 
-object GitGutterApplicationListener : AppLifecycleListener {
+object ApplicationListener : AppLifecycleListener {
     private const val multiplier = 0.75
     private const val alpha = 0.5
     private val cp = ClassPool(true)
@@ -20,7 +20,7 @@ object GitGutterApplicationListener : AppLifecycleListener {
         }
     }
 
-    private fun resize(): GitGutterApplicationListener {
+    private fun resize(): ApplicationListener {
         cp.get("com.intellij.openapi.editor.impl.EditorGutterComponentImpl")
             .apply {
                 getDeclaredMethod("getLineMarkerFreePaintersAreaOffset")
@@ -40,7 +40,7 @@ object GitGutterApplicationListener : AppLifecycleListener {
         return this
     }
 
-    private fun applyAlphaChannel(): GitGutterApplicationListener {
+    private fun applyAlphaChannel(): ApplicationListener {
         val alpha = (alpha * 255).roundToInt().let {
             when {
                 it < 0 -> 0

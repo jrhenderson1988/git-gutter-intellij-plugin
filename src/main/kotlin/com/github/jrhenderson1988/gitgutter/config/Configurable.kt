@@ -1,11 +1,11 @@
 package com.github.jrhenderson1988.gitgutter.config
 
-import com.github.jrhenderson1988.gitgutter.config.form.GitGutterConfigForm
+import com.github.jrhenderson1988.gitgutter.config.form.ConfigForm
 import com.intellij.openapi.options.SearchableConfigurable
 
-class GitGutterConfigurable : SearchableConfigurable {
+class Configurable : SearchableConfigurable {
     private val config = GitGutterConfig.instance
-    private val form = GitGutterConfigForm(config)
+    private val form = ConfigForm(config)
 
     override fun getId(): String {
         return this.javaClass.`package`.name

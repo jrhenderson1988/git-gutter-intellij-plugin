@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.github.jrhenderson1988.gitgutter</id>
     <name>Git Gutter</name>
-    <vendor url="https://github.com/jrhenderson1988">Jonathon Henderson</vendor>
+    <vendor url="https://github.com/jrhenderson1988/git-gutter-intellij-plugin">Jonathon Henderson</vendor>
 
     <description><![CDATA[Allows some minor customisation of the VCS change markers in the editor's gutter]]></description>
 
@@ -10,15 +10,14 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-        <applicationConfigurable instance="com.github.jrhenderson1988.gitgutter.config.GitGutterConfigurable"
+        <applicationConfigurable instance="com.github.jrhenderson1988.gitgutter.config.Configurable"
                                  groupId="appearance"
-                                 id="GitGutterConfigurable"/>
+                                 id="com.github.jrhenderson1988.gitgutter.config.Configurable"/>
         <applicationService serviceImplementation="com.github.jrhenderson1988.gitgutter.config.GitGutterConfig"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.jrhenderson1988.gitgutter.GitGutterApplicationListener"
+        <listener class="com.github.jrhenderson1988.gitgutter.ApplicationListener"
                   topic="com.intellij.ide.AppLifecycleListener"/>
     </applicationListeners>
 

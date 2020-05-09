@@ -5,7 +5,7 @@ import com.intellij.ui.JBIntSpinner
 import com.intellij.ui.layout.panel
 import kotlin.math.roundToInt
 
-class GitGutterConfigForm(private val config: GitGutterConfig) {
+class ConfigForm(private val config: GitGutterConfig) {
     val component by lazy {
         buildComponent()
     }
