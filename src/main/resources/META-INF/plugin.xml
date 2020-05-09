@@ -14,6 +14,7 @@
         <applicationConfigurable instance="com.github.jrhenderson1988.gitgutter.config.GitGutterConfigurable"
                                  groupId="appearance"
                                  id="GitGutterConfigurable"/>
+        <applicationService serviceImplementation="com.github.jrhenderson1988.gitgutter.config.GitGutterConfig"/>
     </extensions>
 
     <applicationListeners>

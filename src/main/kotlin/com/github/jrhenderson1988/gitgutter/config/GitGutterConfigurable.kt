@@ -4,7 +4,8 @@ import com.github.jrhenderson1988.gitgutter.config.form.GitGutterConfigForm
 import com.intellij.openapi.options.SearchableConfigurable
 
 class GitGutterConfigurable : SearchableConfigurable {
-    private val form = GitGutterConfigForm()
+    private val config = GitGutterConfig.instance
+    private val form = GitGutterConfigForm(config)
 
     override fun getId(): String {
         return this.javaClass.`package`.name
@@ -12,11 +13,12 @@ class GitGutterConfigurable : SearchableConfigurable {
 
     override fun createComponent() = form.component
 
-    override fun isModified() = false
+    override fun isModified() = form.isModified()
 
     override fun getDisplayName() = "Git Gutter"
 
     override fun apply() {
-        println("Apply called")
+        config.alpha = form.alpha
+        config.size = form.size
     }
 }
